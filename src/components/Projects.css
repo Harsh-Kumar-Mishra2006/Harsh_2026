@@ -1,0 +1,91 @@
+/* ------------- overall page -------------------------------------------- */
+.projects-wrapper {
+  background: #000000; /* white background */
+  padding: 1rem 1.25rem 4rem;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ------------- 2‑column grid ------------------------------------------- */
+.projects-grid {
+  display: grid;
+  gap: 2rem;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* two cards in a row */
+  }
+}
+
+/* ------------- individual card ----------------------------------------- */
+.project-card {
+  display: flex;
+  flex-direction: column; /* stacks on mobile */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+@media (min-width: 600px) {
+  .project-card {
+    flex-direction: row; /* side‑by‑side on tablet/desktop */
+  }
+}
+
+/* left side = image ------------------------------------------------------ */
+.project-image {
+  flex: 1 1 50%;
+  min-height: 220px;
+  background: #efefef center/cover no-repeat;
+}
+
+/* right side = text ------------------------------------------------------ */
+.project-info {
+  flex: 1 1 50%;
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* colourful box for title (gradient text) -------------------------------- */
+.project-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* light body copy */
+.project-desc {
+  flex: 1;
+  margin-bottom: 1.25rem;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* buttons ---------------------------------------------------------------- */
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.project-links a {
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: var(--btn);
+  transition: transform 0.2s;
+}
+.project-links a:hover {
+  transform: translateY(-2px);
+}

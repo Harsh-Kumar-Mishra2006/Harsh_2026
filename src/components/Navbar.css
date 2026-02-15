@@ -1,0 +1,130 @@
+/* ----------  Root navbar  --------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  position: sticky; /* sticks to top while scrolling   */
+  top: 0;
+  inset-inline: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s ease;
+  width: 100vw;
+}
+
+/* ----------  Container  ------------------------------------------------ */
+.navbar-container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0.85rem 1.25rem; /* a bit taller than before         */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ----------  Logo / Name  --------------------------------------------- */
+.logo {
+  font-size: 1.75rem; /* larger */
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #00d4ff, #00ffa6);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+/* ----------  Desktop links  ------------------------------------------- */
+.nav-links {
+  display: none; /* hidden on mobile */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #d1d5db;
+  transition: color 0.25s;
+}
+
+/* underline on hover / active */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #34d399;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: #34d399;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* ----------  Burger button  ------------------------------------------- */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  line-height: 0;
+  font-size: 1.4rem;
+  display: grid;
+  place-items: center;
+}
+
+/* ----------  Mobile drawer  ------------------------------------------- */
+.mobile-menu {
+  position: fixed;
+  inset: 0 0 0 auto; /* right side */
+  width: min(80%, 300px);
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.92);
+  padding: 4.5rem 2rem 2rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transform: translateX(100%);
+  transition: transform 0.35s ease-out;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #e5e7eb;
+  transition: color 0.25s;
+}
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: #34d399;
+}
+
+/* ----------  breakpoints  --------------------------------------------- */
+@media (min-width: 768px) {
+  .nav-links {
+    display: flex;
+  }
+  .menu-toggle {
+    display: none;
+  }
+}
